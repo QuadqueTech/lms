@@ -19417,10 +19417,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _MasterLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MasterLayout.vue */ "./resources/js/Components/Backend/Layouts/MasterLayout.vue");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var _vue_reactivity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/reactivity */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     MasterLayout: _MasterLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  setup: function setup() {
+    var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.useRoute)();
+    var name = (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_2__.computed)(function () {
+      return route.name;
+    });
+    return {
+      name: name
+    };
   }
 });
 
@@ -19637,7 +19650,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_master_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("master-layout");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_master_layout, null, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [$setup.name != 'SignIn' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_master_layout, {
+    key: 0
+  }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_view, {
         key: _ctx.$router.fullPath
@@ -19646,7 +19661,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })]);
+  })) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_view, {
+    key: _ctx.$router.fullPath
+  }))]);
 }
 
 /***/ }),
@@ -20161,7 +20178,7 @@ var _hoisted_1 = {
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"sk-chase\"><div class=\"sk-chase-dot\"></div><div class=\"sk-chase-dot\"></div><div class=\"sk-chase-dot\"></div><div class=\"sk-chase-dot\"></div><div class=\"sk-chase-dot\"></div><div class=\"sk-chase-dot\"></div></div>", 1);
 
 function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"sk-bounce\">\r\n    <div class=\"sk-bounce-dot\"></div>\r\n    <div class=\"sk-bounce-dot\"></div>\r\n  </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html ")]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"sk-bounce\">\r\n<div class=\"sk-bounce-dot\"></div>\r\n<div class=\"sk-bounce-dot\"></div>\r\n</div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html ")]);
 }
 
 /***/ }),
@@ -20265,7 +20282,7 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticV
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $setup.base_url + '/images/illustration/student/128/white.svg',
+    src: $setup.image_url + '/images/illustration/student/128/white.svg',
     alt: "logo",
     "class": "img-fluid"
   }, null, 8
@@ -20388,7 +20405,7 @@ router.beforeEach(function (to, from, next) {
     return record.meta.auth;
   }) && !loggedIn) {
     // next('/auth/signin')
-    location.href = window.location.origin + '/admin/signin';
+    location.href = window.location.origin + '/admin/login';
     return;
   } // console.log('user', user); 
 
@@ -20422,7 +20439,7 @@ var routes = [{
     auth: true
   }
 }, {
-  path: '/signin',
+  path: '/login',
   name: 'SignIn',
   component: _components_backend_Authentication_SignIn_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
   meta: {

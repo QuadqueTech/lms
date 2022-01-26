@@ -22,6 +22,14 @@
 
         <!-- Preloader -->
         <script src="{{ asset('js/preloader.js')}}"></script>
+{{-- 
+         <!-- Flatpickr -->
+         <script src="{{ asset('/vendor/flatpickr/flatpickr.min.js') }}"></script>
+         <script src="{{ asset('/js/flatpickr.js') }}"></script>
+ 
+         <!-- List.js -->
+         <script src="{{ asset('/vendor/list.min.js') }}"></script>
+         <script src="{{ asset('/js/list.js') }}"></script> --}}
 
 
 

@@ -10,7 +10,7 @@ let routes = [
         }
     },
     {
-        path:'/signin',
+        path:'/login',
         name:'SignIn',
         component:SignIn,
         meta:{

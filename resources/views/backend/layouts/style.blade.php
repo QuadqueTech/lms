@@ -30,3 +30,11 @@
         <link type="text/css"
               href="{{ asset('css/app.css')}}"
               rel="stylesheet">
+
+              <!-- Flatpickr -->
+        <link type="text/css"
+        href="{{ asset('css/flatpickr.css') }}"
+        rel="stylesheet">
+        <link type="text/css"
+        href="{{ asset('css/flatpickr-airbnb.css') }}"
+        rel="stylesheet">

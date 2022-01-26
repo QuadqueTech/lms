@@ -9,7 +9,7 @@
 
                     <span class="avatar avatar-sm navbar-brand-icon mr-0">
 
-                        <span class="avatar-title rounded bg-primary"><img :src="base_url+'/images/illustration/student/128/white.svg'"
+                        <span class="avatar-title rounded bg-primary"><img :src="image_url+'/images/illustration/student/128/white.svg'"
                                  alt="logo"
                                  class="img-fluid" /></span>
 
