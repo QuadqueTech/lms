@@ -15,10 +15,10 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['name' => 'learnq', 'email' => 'admin@learnq.com', 'password' => bcrypt('admin@learnq.com')],
-            ['name' => 'Rajin', 'email' => 'rajin@gmail.com', 'password' => bcrypt('rajin@gmail.com')],
-            ['name' => 'Zakaria', 'email' => 'zakaria@gmail.com', 'password' => bcrypt('zakaria@gmail.com')],
-            ['name' => 'Shere Ali', 'email' => 'shere1895@gmail.com', 'password' => bcrypt('shere1895@gmail.com')],
+            ['name' => 'learnq', 'username' => 'admin@learnq.com', 'email' => 'admin@learnq.com', 'password' => bcrypt('admin@learnq.com')],
+            ['name' => 'Rajin', 'username' => 'rajin@gmail.com', 'email' => 'rajin@gmail.com', 'password' => bcrypt('rajin@gmail.com')],
+            ['name' => 'Zakaria', 'username' => 'zakaria@gmail.com', 'email' => 'zakaria@gmail.com', 'password' => bcrypt('zakaria@gmail.com')],
+            ['name' => 'Shere Ali', 'username' => 'shere1895@gmail.com', 'email' => 'shere1895@gmail.com', 'password' => bcrypt('shere1895@gmail.com')],
         ];
 
         User::insert($data);

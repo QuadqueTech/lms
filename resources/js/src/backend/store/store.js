@@ -24,7 +24,7 @@ export default createStore({
     actions: {
         signIn({ commit }, credentials) {
             return axios
-                .post('/signin', credentials)
+                .post('/login', credentials)
                 .then(({ data }) => {
                     commit('setUserData', data)
                    

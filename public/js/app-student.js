@@ -20485,7 +20485,7 @@ __webpack_require__.r(__webpack_exports__);
   actions: {
     signIn: function signIn(_ref, credentials) {
       var commit = _ref.commit;
-      return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/signin', credentials).then(function (_ref2) {
+      return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/login', credentials).then(function (_ref2) {
         var data = _ref2.data;
         commit('setUserData', data);
         var user = data.user;

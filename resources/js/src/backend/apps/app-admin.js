@@ -5,7 +5,11 @@ import master from '../../../Components/Backend/Layouts/Master.vue'
 import router from '../routes/router-config-admin'
 import store from '../store/store'
 
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+
 import CreateTable from '../../../components/backend/layouts/CreateTable.vue'
+import FormButton from '../../../components/backend/layouts/FormButton.vue'
+import TableContent from '../../../components/backend/layouts/TableContent.vue'
 
 const app = createApp({
     created() {
@@ -28,6 +32,10 @@ const app = createApp({
 })
 
 app.component('create-table', CreateTable)
+app.component('FormButton', FormButton)
+app.component('TableContent', TableContent)
+
+app.component('PulseLoader', PulseLoader)
 
 app.provide('base_url', window.location.origin)
 app.provide('image_url', window.location.origin)

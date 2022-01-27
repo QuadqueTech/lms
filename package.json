@@ -19,6 +19,9 @@
     "dependencies": {
         "vue": "^3.2.26",
         "vue-router": "^4.0.12",
+        "vue-spinner": "^1.0.4",
+        "vue-toasted": "^1.1.28",
+        "vuejs-dialog": "^1.4.2",
         "vuex": "^4.0.2"
     }
 }

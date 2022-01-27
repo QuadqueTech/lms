@@ -20,28 +20,29 @@ let routes = [
         }
     },
     {
-        path:'/category',
+        path:'/course-category',
         name:'Category',
         component:Category,
         meta:{
-            auth:false
+            auth:true
         }
     },
     {
-        path:'/category/create',
+        path:'/course-category/create',
         name:'CreateCategory',
         component:CreateCategory,
         meta:{
-            auth:false
+            auth:true
         }
     },
     {
-        path:'/category/:id',
+        path:'/course-category/:id',
         name:'CreateCategory',
         component:CreateCategory,
         meta:{
-            auth:false
+            auth:true
         }
+        
     },
 ]
 

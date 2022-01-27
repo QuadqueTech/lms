@@ -1,8 +1,8 @@
  <!-- // END Drawer Layout -->
 
-       <script src="{{ asset('js/app-admin.js')}}"></script>
-        <!-- jQuery -->
-        <script src="{{ asset('vendor/jquery.min.js')}}"></script>
+ <!-- jQuery -->
+ <script src="{{ asset('vendor/jquery.min.js')}}"></script>
+ <script src="{{ asset('js/app-admin.js')}}"></script>
 
         <!-- Bootstrap -->
         <script src="{{ asset('vendor/popper.min.js')}}"></script>

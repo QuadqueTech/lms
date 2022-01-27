@@ -10,7 +10,7 @@ class CourseCategory extends Model
     use TraitCollection;
 
     protected $fillable = [
-        'namne',
+        'name',
         'slug',
         'description',
         'thumbnail',
