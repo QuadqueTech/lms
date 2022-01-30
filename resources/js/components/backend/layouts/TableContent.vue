@@ -3,6 +3,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-4">
             
             <div class="card">
+               
                 <div class="card-header">  
                     <div class="row py-1">
                         <div class="col-md-12 col-lg-12 col-sm-12">
@@ -15,7 +16,7 @@
                       Upload Excel
                     </button>
                      
-                     <v-select @input="getDataList(page = 1, sorting_item)" v-if="isSorting" v-model="sortingForm.sorting_item" class="col-md-2 float-right m-1" :options="sortingData" :reduce="sorting => sorting.count_num" label="count_num" placeholder="Sort Item"></v-select>
+                     <!-- <v-select @input="getDataList(page = 1, sorting_item)" v-if="isSorting" v-model="sortingForm.sorting_item" class="col-md-2 float-right m-1" :options="sortingData" :reduce="sorting => sorting.count_num" label="count_num" placeholder="Sort Item"></v-select> -->
                     
                     <button @click="getDataList(page = 1, sorting_item = 'all_data')" v-if="isDownload" class="btn btn-sm btn-success float-right m-1">Download</button>
                     
@@ -55,7 +56,7 @@
                                 </td>
 
                             </tr>
-                            <tr v-if="dataList.data.length == 0"><td :colspan="columnsHead.length" class="text-danger text-center">No data available!</td></tr>
+                            <!-- <tr v-if="dataList.data.length == 0"><td :colspan="columnsHead.length" class="text-danger text-center">No data available!</td></tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -69,38 +70,79 @@
 </template>
 
 <script>
+import { computed, reactive } from 'vue'
 
     export default {
         props: [
             'isAddItem', 'isSingle', 'actionTitle', 'isSingleData', 'isEditBtn', 'isDelBtn','isActionBtn', 'cardTitle','columnsHead', 'columnsBody', 'dataList', 'showEditForm', 'deleteItem', 'getDataList', 'excelFields','excelTitle', 'isDownload', 'isSorting','isSearchBox','searchForm', 'sortingForm', 'dataDownload', 'isLoading','isUpload'
             ],
+        setup(props){
 
-        data(){
-            return {
-                sortingData:[
+             let isAddItem    = computed(() => props.isAddItem)
+             let isSingle     = computed(() => props.isSingle)
+             let actionTitle  = computed(() => props.actionTitle)
+             let isSingleDa   = computed(() => props.isSingleDa)
+             let isEditBt     = computed(() => props.isEditBt)
+             let isDelBtn     = computed(() => props.isDelBtn)
+             let isActionBt   = computed(() => props.isActionBt)
+             let cardTitle    = computed(() => props.cardTitle)
+             let columnsHead  = computed(() => props.columnsHead)
+             let columnsBy    = computed(() => props.columnsBy)
+             let dataList     = computed(() => props.dataList)
+             let showEditForm = computed(() => props.showEditForm)
+             let deleteItem   = computed(() => props.deleteItem)
+             let getDataList  = computed(() => props.getDataList)
+             let excelFiel    = computed(() => props.excelFiel)
+             let excelTitle   = computed(() => props.excelTitle)
+             let isDownloa    = computed(() => props.isDownloa)
+             let isSorting    = computed(() => props.isSorting)
+             let isSearchBo   = computed(() => props.isSearchBo)
+             let searchForm   = computed(() => props.searchForm)
+             let sortingForm  = computed(() => props.sortingForm)
+             let dataDownld   = computed(() => props.dataDownld)
+             let isLoadg      = computed(() => props.isLoadg)
+             let isUpload     = computed(() => props.isUpload)
+
+        let sortingData = reactive([
                     {count_num:15},
                     {count_num:25},
                     {count_num:50},
                     {count_num:100},
                     {count_num:500},
                     {count_num:1000},
-                ],
-               
-            }
-        },
-        created(){
+                ])
             
-        },
-        // computed:{
-        //     permissions:function(){
-        //         setTimeout(()=>{
-        //         console.log('this.dataList.permissions', this.dataList.permissions.read);
-        //         return this.dataList.permission
 
-        //     }, 2000)
-        //     }
-        // },
+        return{
+            isAddItem,
+            isSingle,
+            actionTitle,
+            isSingleDa,
+            isEditBt,
+            isDelBtn,
+            isActionBt,
+            cardTitle,
+            columnsHead,
+            columnsBy,
+            dataList,
+            showEditForm,
+            deleteItem,
+            getDataList,
+            excelFiel,
+            excelTitle,
+            isDownloa,
+            isSorting,
+            isSearchBo,
+            searchForm,
+            sortingForm,
+            dataDownld,
+            isLoadg,
+            isUpload,
+            sortingData,
 
+        }
+
+        }
     }
 
 </script>

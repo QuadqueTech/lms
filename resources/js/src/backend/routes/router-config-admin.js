@@ -6,6 +6,7 @@ axios.defaults.baseURL = window.location.origin
 const router = createRouter({
  history:createWebHistory("/admin/"),
  fallback:true,
+ linkActiveClass:'active',
  routes
 
 })
@@ -17,15 +18,13 @@ router.beforeEach((to, from, next) => {
 
     if (to.matched.some(record => record.meta.auth) && !loggedIn) {
         // next('/auth/signin')
+
         location.href = window.location.origin+'/admin/login'
         return
     } 
-    // console.log('user', user); 
     
     next()
-
-    
-    
+    // console.log('user', user); 
     
 })
 

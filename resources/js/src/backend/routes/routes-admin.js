@@ -44,6 +44,10 @@ let routes = [
         }
         
     },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/',
+    },
 ]
 
 export default routes

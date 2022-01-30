@@ -19628,17 +19628,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _src_mixin_use_create__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../src/mixin/use-create */ "./resources/js/src/mixin/use-create.js");
+/* harmony import */ var _src_composable_use_create__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../src/composable/use-create */ "./resources/js/src/composable/use-create.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  setup: function setup(props, context) {
-    var _useCreate = (0,_src_mixin_use_create__WEBPACK_IMPORTED_MODULE_0__["default"])(context),
+  setup: function setup() {
+    var _useCreate = (0,_src_composable_use_create__WEBPACK_IMPORTED_MODULE_0__["default"])(),
         processData = _useCreate.processData,
         inputData = _useCreate.inputData,
         state = _useCreate.state;
 
     state.generalApi = 'course-category';
     state.backUrl = '/course-category';
+    console.log(state.generalApi);
     return {
       processData: processData,
       inputData: inputData,
@@ -19660,17 +19661,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _src_mixin_mixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../src/mixin/mixin */ "./resources/js/src/mixin/mixin.js");
+/* harmony import */ var _src_composable_use_get__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../src/composable/use-get */ "./resources/js/src/composable/use-get.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_src_mixin_mixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  data: function data() {
-    return {};
-  },
-  created: function created() {
-    this.generalApi = 'course-category';
-    this.columnsHead.push('ক্রঃ নং', 'বিবরণ', 'ভাঃ থেকে সরবারহ', 'জমা', 'খরচ', 'মজুদ', 'মজুদ মূল্য', 'অ্যাকশন');
-    this.columnsBody.push('name', 'supplier', 'stock_in', 'stock_out', 'total_quantity', 'total_price');
+  setup: function setup() {
+    var _useGet = (0,_src_composable_use_get__WEBPACK_IMPORTED_MODULE_0__["default"])(),
+        getDataList = _useGet.getDataList,
+        state = _useGet.state;
+
+    state.generalApi = 'course-category';
+    console.log(state.generalApi);
+    state.cardTitle = 'Course Category';
+    state.columnsHead.push('Serial No.', 'Name', 'Action');
+    state.columnsBody.push('name');
+    return {
+      getDataList: getDataList,
+      state: state
+    };
   }
 });
 
@@ -19765,34 +19772,124 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['isAddItem', 'isSingle', 'actionTitle', 'isSingleData', 'isEditBtn', 'isDelBtn', 'isActionBtn', 'cardTitle', 'columnsHead', 'columnsBody', 'dataList', 'showEditForm', 'deleteItem', 'getDataList', 'excelFields', 'excelTitle', 'isDownload', 'isSorting', 'isSearchBox', 'searchForm', 'sortingForm', 'dataDownload', 'isLoading', 'isUpload'],
-  data: function data() {
+  setup: function setup(props) {
+    var isAddItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isAddItem;
+    });
+    var isSingle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isSingle;
+    });
+    var actionTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.actionTitle;
+    });
+    var isSingleDa = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isSingleDa;
+    });
+    var isEditBt = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isEditBt;
+    });
+    var isDelBtn = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isDelBtn;
+    });
+    var isActionBt = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isActionBt;
+    });
+    var cardTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.cardTitle;
+    });
+    var columnsHead = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.columnsHead;
+    });
+    var columnsBy = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.columnsBy;
+    });
+    var dataList = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.dataList;
+    });
+    var showEditForm = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.showEditForm;
+    });
+    var deleteItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.deleteItem;
+    });
+    var getDataList = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.getDataList;
+    });
+    var excelFiel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.excelFiel;
+    });
+    var excelTitle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.excelTitle;
+    });
+    var isDownloa = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isDownloa;
+    });
+    var isSorting = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isSorting;
+    });
+    var isSearchBo = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isSearchBo;
+    });
+    var searchForm = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.searchForm;
+    });
+    var sortingForm = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.sortingForm;
+    });
+    var dataDownld = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.dataDownld;
+    });
+    var isLoadg = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isLoadg;
+    });
+    var isUpload = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.isUpload;
+    });
+    var sortingData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)([{
+      count_num: 15
+    }, {
+      count_num: 25
+    }, {
+      count_num: 50
+    }, {
+      count_num: 100
+    }, {
+      count_num: 500
+    }, {
+      count_num: 1000
+    }]);
     return {
-      sortingData: [{
-        count_num: 15
-      }, {
-        count_num: 25
-      }, {
-        count_num: 50
-      }, {
-        count_num: 100
-      }, {
-        count_num: 500
-      }, {
-        count_num: 1000
-      }]
+      isAddItem: isAddItem,
+      isSingle: isSingle,
+      actionTitle: actionTitle,
+      isSingleDa: isSingleDa,
+      isEditBt: isEditBt,
+      isDelBtn: isDelBtn,
+      isActionBt: isActionBt,
+      cardTitle: cardTitle,
+      columnsHead: columnsHead,
+      columnsBy: columnsBy,
+      dataList: dataList,
+      showEditForm: showEditForm,
+      deleteItem: deleteItem,
+      getDataList: getDataList,
+      excelFiel: excelFiel,
+      excelTitle: excelTitle,
+      isDownloa: isDownloa,
+      isSorting: isSorting,
+      isSearchBo: isSearchBo,
+      searchForm: searchForm,
+      sortingForm: sortingForm,
+      dataDownld: dataDownld,
+      isLoadg: isLoadg,
+      isUpload: isUpload,
+      sortingData: sortingData
     };
-  },
-  created: function created() {} // computed:{
-  //     permissions:function(){
-  //         setTimeout(()=>{
-  //         console.log('this.dataList.permissions', this.dataList.permissions.read);
-  //         return this.dataList.permission
-  //     }, 2000)
-  //     }
-  // },
-
+  }
 });
 
 /***/ }),
@@ -20316,19 +20413,19 @@ var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticV
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar Toggler "), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" // END Navbar Toggler "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar Brand "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $setup.image_url + '/images/logo/white-1000@2x.png',
+    src: $setup.image_url + '/images/logo/white-100@2x.png',
     alt: "logo",
     "class": "img-fluid"
   }, null, 8
   /* PROPS */
   , _hoisted_6)])]), _hoisted_7]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" // END Navbar Brand "), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Switch Layout "), _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" // END Switch Layout "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Navbar Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Notifications dropdown "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $setup.image_url + '/image/images/people/110/woman-5.jpg',
+    src: $setup.image_url + '/images/people/110/woman-5.jpg',
     alt: "people",
     "class": "avatar-img rounded-circle"
   }, null, 8
   /* PROPS */
   , _hoisted_22)]), _hoisted_23])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: $setup.image_url + '/image/images/people/110/woman-5.jpg',
+    src: $setup.image_url + '/images/people/110/woman-5.jpg',
     alt: "people",
     "class": "avatar-img rounded-circle"
   }, null, 8
@@ -20659,32 +20756,32 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_TableContent = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TableContent");
 
-  return _typeof(_ctx.dataList) == 'object' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_TableContent, {
+  return _typeof($setup.state.dataList) == 'object' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_TableContent, {
     key: 0,
     style: {
       "margin-top": "-20px"
     },
-    searchForm: _ctx.searchForm,
-    sortingForm: _ctx.sortingForm,
-    isAddItem: _ctx.isAddItem,
-    isEditBtn: _ctx.isEditBtn,
-    isDelBtn: _ctx.isDelBtn,
-    isActionBtn: _ctx.isActionBtn,
-    cardTitle: _ctx.cardTitle,
-    columnsHead: _ctx.columnsHead,
-    columnsBody: _ctx.columnsBody,
-    dataList: _ctx.dataList,
-    showEditForm: _ctx.showEditForm,
-    deleteItem: _ctx.deleteItem,
-    getDataList: _ctx.getDataList,
-    excelFields: _ctx.excelFields,
-    excelTitle: _ctx.excelTitle,
-    isDownload: _ctx.isDownload,
-    isSearchBox: _ctx.isSearchBox,
-    isUpload: _ctx.isUpload,
-    isSorting: _ctx.isSorting,
-    dataDownload: _ctx.dataDownload,
-    isLoading: _ctx.isLoading,
+    searchForm: $setup.state.searchForm,
+    sortingForm: $setup.state.sortingForm,
+    isAddItem: $setup.state.isAddItem,
+    isEditBtn: $setup.state.isEditBtn,
+    isDelBtn: $setup.state.isDelBtn,
+    isActionBtn: $setup.state.isActionBtn,
+    cardTitle: $setup.state.cardTitle,
+    columnsHead: $setup.state.columnsHead,
+    columnsBody: $setup.state.columnsBody,
+    dataList: $setup.state.dataList,
+    showEditForm: $setup.state.showEditForm,
+    deleteItem: $setup.state.deleteItem,
+    getDataList: $setup.state.getDataList,
+    excelFields: $setup.state.excelFields,
+    excelTitle: $setup.state.excelTitle,
+    isDownload: $setup.state.isDownload,
+    isSearchBox: $setup.state.isSearchBox,
+    isUpload: $setup.state.isUpload,
+    isSorting: $setup.state.isSorting,
+    dataDownload: $setup.state.dataDownload,
+    isLoading: $setup.state.isLoading,
     route: "admin"
   }, null, 8
   /* PROPS */
@@ -21105,10 +21202,6 @@ var _hoisted_21 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_22 = [_hoisted_21];
 var _hoisted_23 = {
-  key: 0
-};
-var _hoisted_24 = ["colspan"];
-var _hoisted_25 = {
   "class": "card-footer clearfix"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21116,18 +21209,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  var _component_v_select = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-select");
-
   var _component_downloadExcel = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("downloadExcel");
 
   var _component_pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pagination");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.cardTitle), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.cardTitle), 1
   /* TEXT */
   ), $props.isLoading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_pulseLoader, {
     key: 0,
     "class": "text-center"
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), $props.isAddItem ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), $setup.isAddItem ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_router_link, {
     key: 0,
     to: this.$route.path + '/create',
     "class": "btn btn-sm btn-primary float-right m-1"
@@ -21140,28 +21231,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["to"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.isUpload ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_8, " Upload Excel ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.isSorting ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_v_select, {
+  , ["to"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.isUpload ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_8, " Upload Excel ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <v-select @input=\"getDataList(page = 1, sorting_item)\" v-if=\"isSorting\" v-model=\"sortingForm.sorting_item\" class=\"col-md-2 float-right m-1\" :options=\"sortingData\" :reduce=\"sorting => sorting.count_num\" label=\"count_num\" placeholder=\"Sort Item\"></v-select> "), $props.isDownload ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     key: 2,
-    onInput: _cache[0] || (_cache[0] = function ($event) {
-      return $props.getDataList(_ctx.page = 1, _ctx.sorting_item);
-    }),
-    modelValue: $props.sortingForm.sorting_item,
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $props.sortingForm.sorting_item = $event;
-    }),
-    "class": "col-md-2 float-right m-1",
-    options: $data.sortingData,
-    reduce: function reduce(sorting) {
-      return sorting.count_num;
-    },
-    label: "count_num",
-    placeholder: "Sort Item"
-  }, null, 8
-  /* PROPS */
-  , ["modelValue", "options", "reduce"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.isDownload ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
-    key: 3,
-    onClick: _cache[2] || (_cache[2] = function ($event) {
-      return $props.getDataList(_ctx.page = 1, _ctx.sorting_item = 'all_data');
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $setup.getDataList(_ctx.page = 1, _ctx.sorting_item = 'all_data');
     }),
     "class": "btn btn-sm btn-success float-right m-1"
   }, "Download")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_downloadExcel, {
@@ -21172,17 +21245,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "download btn btn-sm btn-success float-right m-1",
     data: $props.dataDownload,
     fields: $props.excelFields,
-    name: $props.cardTitle
+    name: $setup.cardTitle
   }, null, 8
   /* PROPS */
   , ["data", "fields", "name"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <form @keypress=\"dataSearching\" > "), $props.isSearchBox ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
-    key: 4,
+    key: 3,
     type: "text",
-    onInput: _cache[3] || (_cache[3] = function ($event) {
-      return $props.getDataList();
+    onInput: _cache[1] || (_cache[1] = function ($event) {
+      return $setup.getDataList();
     }),
-    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
-      return $props.searchForm.search = $event;
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $setup.searchForm.search = $event;
     }),
     name: "search",
     style: {
@@ -21193,7 +21266,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Search here…"
   }, null, 544
   /* HYDRATE_EVENTS, NEED_PATCH */
-  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.searchForm.search]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </form> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.columnsHead, function (thead, i) {
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.searchForm.search]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </form> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.columnsHead, function (thead, i) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", {
       style: {
         "text-align": "center"
@@ -21204,10 +21277,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     );
   }), 128
   /* KEYED_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.dataList.data, function (item, index) {
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.dataList.data, function (item, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       key: index
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.dataList.meta.from + index), 1
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.dataList.meta.from + index), 1
     /* TEXT */
     ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.columnsBody.slice(0, $props.columnsBody.length), function (tbody, i) {
       return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", {
@@ -21221,14 +21294,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       , _hoisted_13);
     }), 128
     /* KEYED_FRAGMENT */
-    )), $props.isActionBtn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_14, [$props.isSingle ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", {
+    )), $props.isActionBtn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_14, [$setup.isSingle ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", {
       key: 0,
       href: "#",
       onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
         return $props.isSingleData(item);
       }, ["prevent"]),
       "class": "btn btn-success btn-circle btn-xs"
-    }, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.actionTitle), 1
+    }, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.actionTitle), 1
     /* TEXT */
     )], 8
     /* PROPS */
@@ -21236,16 +21309,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: 1,
       href: "#",
       onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
-        return $props.showEditForm(item.id);
+        return $setup.showEditForm(item.id);
       }, ["prevent"]),
       "class": "btn btn-success btn-circle btn-xs"
     }, _hoisted_19, 8
     /* PROPS */
-    , _hoisted_17)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.isDelBtn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", {
+    , _hoisted_17)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $setup.isDelBtn ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("a", {
       key: 2,
       href: "#",
       onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
-        return $props.deleteItem(item.id);
+        return $setup.deleteItem(item.id);
       }, ["prevent"]),
       "class": "btn btn-danger btn-circle btn-xs"
     }, _hoisted_22, 8
@@ -21253,16 +21326,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_20)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), $props.dataList.data.length == 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
-    colspan: $props.columnsHead.length,
-    "class": "text-danger text-center"
-  }, "No data available!", 8
-  /* PROPS */
-  , _hoisted_24)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <tr v-if=\"dataList.data.length == 0\"><td :colspan=\"columnsHead.length\" class=\"text-danger text-center\">No data available!</td></tr> ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
     "class": "pagination pagination-sm m-0 float-right",
-    data: $props.dataList,
+    data: $setup.dataList,
     limit: 1,
-    onPaginationChangePage: $props.getDataList
+    onPaginationChangePage: $setup.getDataList
   }, null, 8
   /* PROPS */
   , ["data", "onPaginationChangePage"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" /.card ")]);
@@ -21342,6 +21410,7 @@ __webpack_require__.r(__webpack_exports__);
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.createRouter)({
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.createWebHistory)("/admin/"),
   fallback: true,
+  linkActiveClass: 'active',
   routes: _routes_admin__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 router.beforeEach(function (to, from, next) {
@@ -21354,10 +21423,9 @@ router.beforeEach(function (to, from, next) {
     // next('/auth/signin')
     location.href = window.location.origin + '/admin/login';
     return;
-  } // console.log('user', user); 
+  }
 
-
-  next();
+  next(); // console.log('user', user); 
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
@@ -21417,6 +21485,9 @@ var routes = [{
   meta: {
     auth: true
   }
+}, {
+  path: '/:pathMatch(.*)*',
+  redirect: '/'
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (routes);
 
@@ -21486,211 +21557,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/mixin/mixin.js":
-/*!*****************************************!*\
-  !*** ./resources/js/src/mixin/mixin.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return _defineProperty({
-      url: window.location.origin,
-      isEdit: false,
-      isEditItem: false,
-      isFile: false,
-      isForm: false,
-      isAddItem: true,
-      isPagination: true,
-      isSingleItem: false,
-      isSamePage: false,
-      isSearch: false,
-      isActionBtn: true,
-      isEditBtn: true,
-      isDelBtn: true,
-      isSearchBox: true,
-      backUrl: '',
-      isImage: '',
-      showImage: '',
-      notReset: {},
-      cardTitle: "",
-      inputData: {},
-      error: {},
-      dataList: {},
-      excelFields: {},
-      excelTitle: {},
-      isDownload: false,
-      isSorting: false,
-      searchApi: null,
-      generalApi: null,
-      getApi: null,
-      postApi: null,
-      patchApi: null,
-      editApi: null,
-      search: "",
-      showPagination: true,
-      tableContent: "",
-      columnsHead: [],
-      columnsBody: [],
-      columnsBodyExtra: [],
-      vColumns: [],
-      isDataSearching: false,
-      dataSearchingApi: null,
-      searchForm: {},
-      sortingForm: {},
-      dataDownload: {},
-      isLoading: false,
-      isUpload: false
-    }, "isPagination", true);
-  },
-  created: function created() {
-    this.generalSettings();
-    jQuery(document).on('keyup', 'form input', function (e) {//     jQuery(this).removeClass('is-invalid')
-      // if(jQuery(this).val() != ''){
-      //     jQuery(this).addClass('is-valid')
-      //     jQuery(this).next().remove()
-      // } else {
-      //     jQuery(this).removeClass('is-valid')
-      // }
-    });
-  },
-  mounted: function mounted() {
-    this.getDataList();
-  },
-  methods: {
-    /**
-     * 
-     * add isImage to Create.vue component. Example this.isImage = edit_photo 
-     * return image with it's path from Resource such as [edit_photo => url('uploads/employee_photo/'.$this->employee_photo)]
-     *  
-     */
-    generalSettings: function generalSettings() {
-      var _this = this;
-
-      if (this.$route.params.id) {
-        // this.isEdit = true
-        axios.get(this.url + '/api' + this.$route.path).then(function (res) {
-          var image = _this.isImage;
-          console.log(_typeof(res.data.data[image]));
-
-          if (_typeof(res.data.data[image]) == 'object') {
-            var i = 0; // res.data.data[image].forEach(image => {
-            //     if(image.name){
-            //         // this.showImage += 
-            //         //'<a href="#" data-imageid="'+image.id+'" class="text-danger deleteImage" style="position:absolute; margin-left:10px; z-index:999; "><i class="fa fa-trash"></i></a><img style="width:100px; height:100px; position:relative; margin:10px; padding:5px;" src="'+res.data.data['image_path']+image.name+'">'  
-            //     }
-            // })
-          } else {
-            _this.showImage = '<img style="width:90px; height:90px;" src="' + res.data.data[image] + '">';
-          }
-
-          _this.inputData = res.data.data;
-        });
-      }
-    },
-    previewImage: function previewImage(event) {
-      var _this2 = this;
-
-      var input = event.target;
-
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-          _this2.imageData = e.target.result;
-        };
-
-        reader.readAsDataURL(input.files[0]);
-      }
-    },
-    showEditForm: function showEditForm(id) {
-      var api = this.generalApi != null ? this.generalApi : this.getApi;
-      this.$router.push({
-        path: api + '/' + id
-      });
-    },
-    dialogConfig: function dialogConfig() {
-      var message = "Are you sure?";
-      var options = {
-        html: false,
-        // set to true if your message contains HTML tags. eg: "Delete <b>Foo</b> ?"
-        loader: false,
-        // set to true if you want the dailog to show a loader after click on "proceed"
-        reverse: false,
-        // switch the button positions (left to right, and vise versa)
-        okText: 'Delete',
-        cancelText: 'Close',
-        animation: 'bounce',
-        // Available: "zoom", "bounce", "fade"
-        type: 'basic',
-        // coming soon: 'soft', 'hard'
-        verification: 'continue',
-        // for hard confirm, user will be prompted to type this to enable the proceed button
-        verificationHelp: 'Type "[+:verification]" below to confirm',
-        // Verification help text. [+:verification] will be matched with 'options.verification' (i.e 'Type "continue" below to confirm')
-        clicksCount: 3,
-        // for soft confirm, user will be asked to click on "proceed" btn 3 times before actually proceeding
-        backdropClose: false,
-        // set to true to close the dialog when clicking outside of the dialog window, i.e. click landing on the mask
-        customClass: '' // Custom class to be injected into the parent node for the current dialog instance
-
-      };
-      var config = {
-        message: message,
-        options: options
-      };
-      return config;
-    },
-
-    /* This delete function work for multiple image delete with relational data and it can
-    also delete single image item form it's table */
-    deleteItem: function deleteItem(i, j) {
-      var _this3 = this;
-
-      /*   j = When you have to delete a single image from multiple image during edit 
-         then this 'j' parameter passed image id and it helps to delete image item from it's table*/
-      var message = this.dialogConfig().message;
-      var options = this.dialogConfig().options;
-      this.$dialog.confirm(message, options).then(function (res) {
-        var api = _this3.generalApi != null ? _this3.generalApi : _this3.getApi;
-        var api_path = _this3.url + '/api/' + api + '/' + i + '?optional_id=' + j;
-        axios["delete"](api_path).then(function (response) {
-          _this3.toastMessage('error', response.data.message);
-
-          _this3.getDataList();
-
-          _this3.generalSettings();
-        })["catch"](function (error) {
-          _this3.toastMessage('error', error.response.data.message, 'times');
-        });
-      })["catch"](function (error) {
-        _this3.toastMessage('success', 'Thanks for keeping me safe!');
-      });
-    },
-    resetForm: function resetForm() {
-      this.inputData = {};
-      var field = this.notReset.field;
-      var value = this.notReset.value;
-      this.inputData[field] = value;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./resources/js/src/mixin/use-create.js":
-/*!**********************************************!*\
-  !*** ./resources/js/src/mixin/use-create.js ***!
-  \**********************************************/
+/***/ "./resources/js/src/composable/use-create.js":
+/*!***************************************************!*\
+  !*** ./resources/js/src/composable/use-create.js ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21699,19 +21569,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ useCreate)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _use_utility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-utility */ "./resources/js/src/composable/use-utility.js");
+
 
 function useCreate() {
-  var state = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
-    base_url: window.location.origin,
-    backUrl: '',
-    generalApi: '',
-    isLoading: false,
-    isEdit: false,
-    isFile: false,
-    isForm: false,
-    isSamePage: false,
-    dataList: []
-  });
+  var _useUtility = (0,_use_utility__WEBPACK_IMPORTED_MODULE_1__["default"])(),
+      state = _useUtility.state;
+
   var inputData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
 
   var processData = function processData() {
@@ -21741,6 +21605,8 @@ function useCreate() {
 
       state.isLoading = false; // state.toastMessage('success', response.data.message)
     })["catch"](function (error) {
+      console.log('error', error);
+
       if (error.response.status == 422) {
         state.error = error.response.data.errors;
         $.each(error.response.data.errors, function (item, index) {
@@ -21764,6 +21630,199 @@ function useCreate() {
     state: state,
     processData: processData,
     inputData: inputData
+  };
+}
+
+/***/ }),
+
+/***/ "./resources/js/src/composable/use-get.js":
+/*!************************************************!*\
+  !*** ./resources/js/src/composable/use-get.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ useGet)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _use_utility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-utility */ "./resources/js/src/composable/use-utility.js");
+
+
+function useGet() {
+  var route = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+    return route;
+  });
+
+  var _useUtility = (0,_use_utility__WEBPACK_IMPORTED_MODULE_1__["default"])(),
+      state = _useUtility.state;
+
+  var inputData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
+
+  var getDataList = function getDataList() {
+    var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+    var sorting_item = arguments.length > 1 ? arguments[1] : undefined;
+    console.log('generalApi'); // console.log('search_item 1', search_item);
+    // return false
+
+    var data = JSON.stringify(state.inputData);
+    var formData = data != "" ? data : 0;
+
+    if (formData.length > 2) {
+      state.isLoading = true;
+    }
+
+    if (sorting_item == 'all_data') {}
+
+    var api = state.generalApi != null ? state.generalApi : state.getApi;
+    var search = "";
+
+    if (state.searchForm.search && state.searchForm.search != 'undefined') {
+      search = state.searchForm.search;
+      state.isLoading = true;
+    } else {
+      search = false;
+    }
+
+    var query = sorting_item != undefined ? sorting_item : false;
+    var api_path = state.url + '/api/' + api + '?page=' + page + '&is_paginate=' + state.isPagination + '&search=' + search + '&sorting=' + query + '&data=' + formData;
+    axios.get(api_path).then(function (response) {
+      if (response.status == 200) {
+        console.log('data', query);
+
+        if (query === 'all_data') {
+          state.dataDownload = response.data.data;
+          state.isLoading = true;
+          setTimeout(function () {
+            $('.download').trigger('click');
+            state.isLoading = false;
+          }, 3000);
+          console.log('download data', response.data);
+        } else {
+          state.dataList = response.data;
+          state.isLoading = false;
+        }
+      }
+    })["catch"](function (error) {
+      if (error.response.status == 422) {
+        state.errors = error.response.data.errors;
+      } else {
+        state.toastMessage('error', error, 'check', '', 'times');
+      }
+    })["finally"](function () {});
+  };
+
+  var showEditForm = function showEditForm(id) {
+    var api = state.generalApi != null ? state.generalApi : state.getApi;
+    route.push({
+      path: api + '/' + id
+    });
+  };
+
+  var deleteItem = function deleteItem(i, j) {
+    /*   j = When you have to delete a single image from multiple image during edit 
+       then this 'j' parameter passed image id and it helps to delete image item from it's table*/
+    // let message = this.dialogConfig().message
+    // let options = this.dialogConfig().options
+    // this.$dialog.confirm(message, options)
+    // .then(res => {
+    //     let api = state.generalApi != null?state.generalApi:state.getApi
+    //     let api_path = state.url+'/api/'+api+'/'+i+'?optional_id='+j
+    //     axios.delete(api_path)
+    //     .then(response => {
+    //         // this.toastMessage('error', response.data.message)
+    //         this.getDataList()
+    //         // this.generalSettings()
+    //     })
+    //     .catch(error => {
+    //         // this.toastMessage('error', error.response.data.message,'times')
+    //     })
+    // })
+    // .catch(error => {
+    //     // this.toastMessage('success', 'Thanks for keeping me safe!')
+    // });
+  };
+
+  return {
+    route: route,
+    state: state,
+    getDataList: getDataList,
+    showEditForm: showEditForm,
+    deleteItem: deleteItem,
+    inputData: inputData
+  };
+}
+
+/***/ }),
+
+/***/ "./resources/js/src/composable/use-utility.js":
+/*!****************************************************!*\
+  !*** ./resources/js/src/composable/use-utility.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ useUtility)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+function useUtility() {
+  var state = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)(_defineProperty({
+    url: window.location.origin,
+    base_url: window.location.origin,
+    isEdit: false,
+    isEditItem: false,
+    isFile: false,
+    isForm: false,
+    isAddItem: true,
+    isPagination: true,
+    isSingleItem: false,
+    isSamePage: false,
+    isSearch: false,
+    isActionBtn: true,
+    isEditBtn: true,
+    isDelBtn: true,
+    isSearchBox: true,
+    backUrl: '',
+    isImage: '',
+    showImage: '',
+    notReset: {},
+    cardTitle: "",
+    inputData: {},
+    error: {},
+    dataList: {},
+    excelFields: {},
+    excelTitle: {},
+    isDownload: false,
+    isSorting: false,
+    searchApi: null,
+    generalApi: null,
+    getApi: null,
+    postApi: null,
+    patchApi: null,
+    editApi: null,
+    search: "",
+    showPagination: true,
+    tableContent: "",
+    columnsHead: [],
+    columnsBody: [],
+    columnsBodyExtra: [],
+    vColumns: [],
+    isDataSearching: false,
+    dataSearchingApi: null,
+    searchForm: {},
+    sortingForm: {},
+    dataDownload: {},
+    isLoading: false,
+    isUpload: false
+  }, "isPagination", true));
+  return {
+    state: state
   };
 }
 

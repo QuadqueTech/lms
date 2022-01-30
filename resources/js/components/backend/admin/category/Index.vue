@@ -1,38 +1,36 @@
 <template>
-   <TableContent  style="margin-top:-20px;"  v-if="typeof(dataList) == 'object'" :searchForm="searchForm" :sortingForm="sortingForm" :isAddItem="isAddItem" :isEditBtn="isEditBtn" :isDelBtn="isDelBtn" :isActionBtn="isActionBtn" :cardTitle="cardTitle" :columnsHead="columnsHead" :columnsBody="columnsBody" :dataList="dataList" :showEditForm="showEditForm" :deleteItem="deleteItem" :getDataList="getDataList" :excelFields="excelFields" :excelTitle="excelTitle" :isDownload="isDownload" :isSearchBox="isSearchBox" :isUpload="isUpload" :isSorting="isSorting" :dataDownload="dataDownload" :isLoading="isLoading" route="admin"></TableContent>
+   <TableContent  style="margin-top:-20px;"  v-if="typeof(state.dataList) == 'object'" :searchForm="state.searchForm" :sortingForm="state.sortingForm" :isAddItem="state.isAddItem" :isEditBtn="state.isEditBtn" :isDelBtn="state.isDelBtn" :isActionBtn="state.isActionBtn" :cardTitle="state.cardTitle" :columnsHead="state.columnsHead" :columnsBody="state.columnsBody" :dataList="state.dataList" :showEditForm="state.showEditForm" :deleteItem="state.deleteItem" :getDataList="state.getDataList" :excelFields="state.excelFields" :excelTitle="state.excelTitle" :isDownload="state.isDownload" :isSearchBox="state.isSearchBox" :isUpload="state.isUpload" :isSorting="state.isSorting" :dataDownload="state.dataDownload" :isLoading="state.isLoading" route="admin"></TableContent>
 </template>
 <script>
-import mixin from '../../../../src/mixin/mixin'
+import useGet from '../../../../src/composable/use-get'
 export default {
-    mixins:[mixin],
-    data(){
+
+    setup(){
+        
+        let {getDataList, state} = useGet()
+        
+
+        state.generalApi = 'course-category'
+
+        console.log(state.generalApi);
+        state.cardTitle = 'Course Category'
+
+        state.columnsHead.push(
+            'Serial No.',
+            'Name',
+            'Action'
+        )
+
+        state.columnsBody.push(
+            'name',
+                
+        )
+
         return{
-            
+        getDataList,
+        state
         }
     },
-    
-    created(){
-    this.generalApi = 'course-category'
-    this.columnsHead.push(
-        'ক্রঃ নং',
-        'বিবরণ',
-        'ভাঃ থেকে সরবারহ',
-        'জমা',
-        'খরচ',
-        'মজুদ',
-        'মজুদ মূল্য',
-        'অ্যাকশন'
-    )
 
-    this.columnsBody.push(
-        'name',
-        'supplier',
-        'stock_in',
-        'stock_out',
-        'total_quantity',
-        'total_price',
-            
-    )
- }
 }
 </script>

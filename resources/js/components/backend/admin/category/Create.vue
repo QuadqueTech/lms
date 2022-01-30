@@ -40,21 +40,22 @@
 </template>
 
 <script>
-import useCreate from '../../../../src/mixin/use-create'
+import useCreate from '../../../../src/composable/use-create'
 export default {
-   setup(props,context){
-     let {processData, inputData, state} = useCreate(context)
+   setup(){
+     let {processData, inputData, state} = useCreate()
 
     state.generalApi = 'course-category'
     state.backUrl = '/course-category'
 
-
+    console.log(state.generalApi);
     
     return{
 
       processData,
       inputData,
       state,
+      
 
     }
    }

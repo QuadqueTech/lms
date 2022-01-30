@@ -1,19 +1,9 @@
 import { reactive } from "vue"
+import useUtility from './use-utility'
 export default function useCreate(){
 
-    let state = reactive({
-        base_url:window.location.origin,
-        backUrl:'',
-        generalApi:'',
-        isLoading:false,
-        isEdit:false,
-        
-        isFile:false,
-        isForm:false,
-        isSamePage:false,
-        dataList:[],
-    })
-
+    
+    let {state} = useUtility()
     let inputData = reactive({})
 
     let processData = () => {
@@ -53,6 +43,7 @@ export default function useCreate(){
             
         })
         .catch(error =>{
+            console.log('error', error);
             
             if(error.response.status == 422){
                 state.error = error.response.data.errors
@@ -86,7 +77,8 @@ export default function useCreate(){
     return{
         state,
         processData,
-        inputData
+        inputData,
+        
     }
 
     

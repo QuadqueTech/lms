@@ -16,7 +16,7 @@
             <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
 
                 <span class="avatar-title rounded bg-primary"><img
-                        :src="image_url+'/images/logo/white-1000@2x.png'" alt="logo"
+                        :src="image_url+'/images/logo/white-100@2x.png'" alt="logo"
                         class="img-fluid" /></span>
 
             </span>
@@ -77,7 +77,7 @@
                                 </span>
                                 <span class="d-flex">
                                     <span class="avatar avatar-xs mr-2">
-                                        <img :src="image_url+'/image/images/people/110/woman-5.jpg'" alt="people"
+                                        <img :src="image_url+'/images/people/110/woman-5.jpg'" alt="people"
                                             class="avatar-img rounded-circle">
                                     </span>
                                     <span class="flex d-flex flex-column">
@@ -94,7 +94,7 @@
                                 </span>
                                 <span class="d-flex">
                                     <span class="avatar avatar-xs mr-2">
-                                        <img :src="image_url+'/image/images/people/110/woman-5.jpg'" alt="people"
+                                        <img :src="image_url+'/images/people/110/woman-5.jpg'" alt="people"
                                             class="avatar-img rounded-circle">
                                     </span>
                                     <span class="flex d-flex flex-column">
