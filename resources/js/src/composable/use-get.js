@@ -1,22 +1,28 @@
 import { reactive, computed } from "vue"
 import useUtility from "./use-utility"
+import { useRoute, useRouter } from "vue-router"
 
 export default function useGet(){
 
-    let route     = computed(() => route)
+    let router    = useRouter()
+    let route     = useRoute()
     let {state}   = useUtility()
     let inputData = reactive({})
 
+    // console.log('params', route.name);
+    // let getDataList = (page = 1, sorting_item) => {
 
-    let getDataList = (page = 1, sorting_item) => {
+       
+    // }
+
+    let getDataList = computed((page = 1, sorting_item) =>{
 
         console.log('generalApi');
 
         // console.log('search_item 1', search_item);
         // return false
 
-        let data = JSON.stringify(state.inputData)
-
+        let data     = JSON.stringify(state.inputData)
         let formData = data !=""?data:0
 
         if(formData.length > 2){
@@ -33,7 +39,6 @@ export default function useGet(){
 
         if((state.searchForm.search && state.searchForm.search != 'undefined')){
             
-
             search = state.searchForm.search
             state.isLoading = true
 
@@ -43,9 +48,8 @@ export default function useGet(){
 
         }
 
-        let query = sorting_item != undefined?sorting_item:false
-
-        let api_path = state.url+'/api/'+api+'?page='+page+'&is_paginate='+state.isPagination+'&search='+search+'&sorting='+query+'&data='+formData
+        let query       = sorting_item != undefined?sorting_item:false
+        let api_path    = state.url+'/api/'+api+'?page='+page+'&is_paginate='+state.isPagination+'&search='+search+'&sorting='+query+'&data='+formData
         
         axios.get(api_path)
         .then(response => {
@@ -55,7 +59,7 @@ export default function useGet(){
                 if(query === 'all_data'){
 
                     state.dataDownload = response.data.data
-                    state.isLoading = true 
+                    state.isLoading    = true 
 
                     setTimeout(() => {
                         $('.download').trigger('click')
@@ -85,13 +89,22 @@ export default function useGet(){
         .finally(() => {
 
         })
-    }
+
+        return getDataList
+
+    })
+
+
 
     let showEditForm = (id) => {
         let api = state.generalApi != null?state.generalApi:state.getApi
-        route.push({path:api+'/'+id});    
+
+        router.push({ path: route.path+'/'+id })
+        
         
     }
+
+    // showEditForm()
 
     let deleteItem = (i,j) => {
 
@@ -131,6 +144,7 @@ export default function useGet(){
 
     return{
         route,
+        router,
         state,
         getDataList,
         showEditForm,

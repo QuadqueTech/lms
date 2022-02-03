@@ -36,8 +36,8 @@
                         </router-link>
                     </li>
                    
-                    <li class="sidebar-menu-item" :class="{'active':path == '/category'}">
-                        <router-link class="sidebar-menu-button" to="/category">
+                    <li class="sidebar-menu-item" :class="{'active':path == '/course-category'}">
+                        <router-link class="sidebar-menu-button" to="/course-category">
                             <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">account_box</span>
                             <span class="sidebar-menu-text">Category</span>
                         </router-link>

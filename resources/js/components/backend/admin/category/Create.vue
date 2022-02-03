@@ -55,8 +55,6 @@ export default {
       processData,
       inputData,
       state,
-      
-
     }
    }
    

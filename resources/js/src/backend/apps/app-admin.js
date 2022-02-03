@@ -6,6 +6,7 @@ import router from '../routes/router-config-admin'
 import store from '../store/store'
 
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import Pagination from 'v-pagination-3';
 
 import CreateTable from '../../../components/backend/layouts/CreateTable.vue'
 import FormButton from '../../../components/backend/layouts/FormButton.vue'
@@ -36,6 +37,7 @@ app.component('FormButton', FormButton)
 app.component('TableContent', TableContent)
 
 app.component('PulseLoader', PulseLoader)
+app.component('pagination', Pagination);
 
 app.provide('base_url', window.location.origin)
 app.provide('image_url', window.location.origin)

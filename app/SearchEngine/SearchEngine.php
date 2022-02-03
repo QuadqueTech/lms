@@ -16,7 +16,7 @@ class SearchEngine
     public function search()
     {
         $search = $this->options['data']->search;
-        $dataSorting = $this->options['data']->sorting == 'false'?10:$this->options['data']->sorting;
+        $dataSorting = $this->options['data']->sorting == 'false'?2:$this->options['data']->sorting;
 
         $searchableField = $this->searchable;
 

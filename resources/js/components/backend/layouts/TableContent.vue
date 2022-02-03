@@ -1,28 +1,27 @@
 <template>
     
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-4">
-            
-            <div class="card">
+             <div class="card">
                
                 <div class="card-header">  
                     <div class="row py-1">
                         <div class="col-md-12 col-lg-12 col-sm-12">
-                            <h3 class="card-title">{{ cardTitle }}</h3>
-                            <pulseLoader v-if="isLoading" class="text-center"></pulseLoader>
+                            <h3 class="card-title">{{ state.cardTitle }}</h3>
+                            <pulseLoader v-if="state.isLoading" class="text-center"></pulseLoader>
                         </div>
                     </div>
-                    <router-link  :to="this.$route.path+'/create'" class="btn btn-sm btn-primary float-right m-1" v-if="isAddItem">Add New</router-link>
-                     <button type="button" v-if="isUpload" class="btn btn-sm btn-primary float-right m-1 modal_show_button" data-toggle="modal" data-target="#exampleModal">
+                    <router-link  :to="route.path+'/create'" class="btn btn-sm btn-primary float-right m-1" v-if="state.isAddItem">Add New</router-link>
+                     <button type="button" v-if="state.isUpload" class="btn btn-sm btn-primary float-right m-1 modal_show_button" data-toggle="modal" data-target="#exampleModal">
                       Upload Excel
                     </button>
                      
                      <!-- <v-select @input="getDataList(page = 1, sorting_item)" v-if="isSorting" v-model="sortingForm.sorting_item" class="col-md-2 float-right m-1" :options="sortingData" :reduce="sorting => sorting.count_num" label="count_num" placeholder="Sort Item"></v-select> -->
                     
-                    <button @click="getDataList(page = 1, sorting_item = 'all_data')" v-if="isDownload" class="btn btn-sm btn-success float-right m-1">Download</button>
+                    <button @click="getDataList(page = 1, sorting_item = 'all_data')" v-if="state.isDownload" class="btn btn-sm btn-success float-right m-1">Download</button>
                     
-                    <downloadExcel ref="download" style="display:none" class="download btn btn-sm btn-success float-right m-1" :data="dataDownload" :fields="excelFields"  :name="cardTitle"></downloadExcel>
+                    <downloadExcel ref="download" style="display:none" class="download btn btn-sm btn-success float-right m-1" :data="state.dataDownload" :fields="state.excelFields"  :name="state.cardTitle"></downloadExcel>
                    <!-- <form @keypress="dataSearching" > -->
-                       <input type="text" @input="getDataList()" v-model="searchForm.search" name="search" style="padding: 0 7px!important; height: calc(2.25rem + 1px)!important;" class="col-md-2 form-control"  placeholder="Search here…" v-if="isSearchBox">
+                       <input type="text" @input="getDataList()" v-model="state.searchForm.search" name="search" style="padding: 0 7px!important; height: calc(2.25rem + 1px)!important;" class="col-md-2 form-control"  placeholder="Search here…" v-if="state.isSearchBox">
                    <!-- </form> -->
                     
                   
@@ -31,26 +30,26 @@
                     <table class="table table-bordered table-response">
                         <thead>
                             <tr class="table-secondary">
-                                <td style="text-align:center;" v-for="(thead, i) in columnsHead"  :key="i">{{ thead }}</td>
+                                <td style="text-align:center;" v-for="(thead, i) in state.columnsHead"  :key="i">{{ thead }}</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) in dataList.data" :key="index">
-                                <td style="text-align:center;">{{ dataList.meta.from +index }}</td>
-                                <td style="text-align:center;" v-for="(tbody, i) in columnsBody.slice(0, columnsBody.length)" :key="i" v-html="item[tbody]"> 
+                            <tr v-for="(item, index) in state.dataList.data" :key="index">
+                                <td style="text-align:center;">{{ state.dataList.meta.from +index }}</td>
+                                <td style="text-align:center;" v-for="(tbody, i) in state.columnsBody.slice(0, state.columnsBody.length)" :key="i" v-html="item[tbody]"> 
                                    
                                 </td>
-                                <td class="text-center" v-if="isActionBtn">
-                                    <a href="#" v-if="isSingle" @click.prevent="isSingleData(item)"
-                                        class="btn btn-success btn-circle btn-xs">
-                                        <i class="fa fa-send"></i> {{actionTitle}}
+                                <td class="text-center" v-if="state.isActionBtn">
+                                    <a href="#" v-if="state.isSingle" @click.prevent="isSingleData(item)"
+                                        class="btn btn-success btn-circle btn-sm m-1">
+                                        <i class="fa fa-send"></i> {{state.actionTitle}}
                                     </a>
-                                    <a href="#" v-if="isEditBtn" @click.prevent="showEditForm(item.id)"
-                                        class="btn btn-success btn-circle btn-xs">
+                                    <a href="#" v-if="state.isEditBtn" @click.prevent="showEditForm(item.id)"
+                                        class="btn btn-success btn-circle btn-sm m-1">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="#" v-if="isDelBtn" @click.prevent="deleteItem(item.id)"
-                                        class="btn btn-danger btn-circle btn-xs">
+                                    <a href="#" v-if="state.isDelBtn" @click.prevent="deleteItem(item.id)"
+                                        class="btn btn-danger btn-circle btn-sm m-1">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
@@ -61,47 +60,53 @@
                     </table>
                 </div>
                 <div class="card-footer clearfix">
-                    <pagination class="pagination pagination-sm m-0 float-right" :data="dataList" :limit="1" @pagination-change-page="getDataList"></pagination>
+                    <!-- <pagination class="pagination pagination-sm m-0 float-right" :data="state.dataList" :limit="1" @pagination-change-page="getDataList"></pagination> -->
+                    <nav aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item"  :class="{'disabled':state.dataList.meta.links[0].active == false}">
+                        <router-link class="page-link" to="#"><span>Previous</span></router-link>
+                        </li>
+                        <!-- <li class="page-item"><router-link class="page-link" :to="state.dataList.links.first">1</router-link></li> -->
+
+                        <li class="page-item" v-for="index in pageOfNumber" :key="index" aria-current="page">
+                        <router-link class="page-link" to="#" @click.prevent="getDataList(index, sorting_item = 'all_data')">{{ index }}</router-link>
+                        </li>
+                        
+                        <li class="page-item">
+                        <router-link class="page-link" to="#"  @click.prevent="getDataList(state.dataList.meta.to, sorting_item = 'all_data')">Next</router-link>
+                        </li>
+                    </ul>
+                    </nav>
                 </div>
             </div>
             <!-- /.card -->
+           
         </div>
  
 </template>
 
 <script>
-import { computed, reactive } from 'vue'
-
+    import { computed, reactive, toRef } from 'vue'
+    import {useRoute} from 'vue-router'
     export default {
-        props: [
-            'isAddItem', 'isSingle', 'actionTitle', 'isSingleData', 'isEditBtn', 'isDelBtn','isActionBtn', 'cardTitle','columnsHead', 'columnsBody', 'dataList', 'showEditForm', 'deleteItem', 'getDataList', 'excelFields','excelTitle', 'isDownload', 'isSorting','isSearchBox','searchForm', 'sortingForm', 'dataDownload', 'isLoading','isUpload'
-            ],
-        setup(props){
+        props: ['stateProperty', 'getDatalist', 'showEditForm', 'deleteItem'],
+        setup(props, context){
+        let route        = useRoute()
+        let propsObj     = toRef(props.stateProperty)
+        let state        = propsObj._object
+        let showEditForm = props.showEditForm
+        let deleteItem   = props.deleteItem
+        let method = toRef(props)
+        let getDatalist  = method.getDatalist
 
-             let isAddItem    = computed(() => props.isAddItem)
-             let isSingle     = computed(() => props.isSingle)
-             let actionTitle  = computed(() => props.actionTitle)
-             let isSingleDa   = computed(() => props.isSingleDa)
-             let isEditBt     = computed(() => props.isEditBt)
-             let isDelBtn     = computed(() => props.isDelBtn)
-             let isActionBt   = computed(() => props.isActionBt)
-             let cardTitle    = computed(() => props.cardTitle)
-             let columnsHead  = computed(() => props.columnsHead)
-             let columnsBy    = computed(() => props.columnsBy)
-             let dataList     = computed(() => props.dataList)
-             let showEditForm = computed(() => props.showEditForm)
-             let deleteItem   = computed(() => props.deleteItem)
-             let getDataList  = computed(() => props.getDataList)
-             let excelFiel    = computed(() => props.excelFiel)
-             let excelTitle   = computed(() => props.excelTitle)
-             let isDownloa    = computed(() => props.isDownloa)
-             let isSorting    = computed(() => props.isSorting)
-             let isSearchBo   = computed(() => props.isSearchBo)
-             let searchForm   = computed(() => props.searchForm)
-             let sortingForm  = computed(() => props.sortingForm)
-             let dataDownld   = computed(() => props.dataDownld)
-             let isLoadg      = computed(() => props.isLoadg)
-             let isUpload     = computed(() => props.isUpload)
+        console.log('dataList', state.dataList);
+
+        let pages = state.dataList.meta.total/state.dataList.meta.per_page
+
+        let pageOfNumber = parseInt(pages)
+
+        console.log('pageOfNumber', );
+             
 
         let sortingData = reactive([
                     {count_num:15},
@@ -114,31 +119,13 @@ import { computed, reactive } from 'vue'
             
 
         return{
-            isAddItem,
-            isSingle,
-            actionTitle,
-            isSingleDa,
-            isEditBt,
-            isDelBtn,
-            isActionBt,
-            cardTitle,
-            columnsHead,
-            columnsBy,
-            dataList,
-            showEditForm,
+          route,
+          state,
+          sortingData,
+          showEditForm,
             deleteItem,
-            getDataList,
-            excelFiel,
-            excelTitle,
-            isDownloa,
-            isSorting,
-            isSearchBo,
-            searchForm,
-            sortingForm,
-            dataDownld,
-            isLoadg,
-            isUpload,
-            sortingData,
+            getDatalist,
+            pageOfNumber,
 
         }
 

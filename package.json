@@ -17,6 +17,7 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
+        "v-pagination-3": "^0.1.7",
         "vue": "^3.2.26",
         "vue-router": "^4.0.12",
         "vue-spinner": "^1.0.4",
