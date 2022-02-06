@@ -8,11 +8,10 @@ export default {
     setup(){
         
         let {getDataList, showEditForm, state} = useGet()
+
         
-
-        state.generalApi = 'course-category'
-
-        console.log(state.generalApi);
+        
+        state.generalApi = 'course-category'        
         state.cardTitle = 'Course Category'
 
         state.columnsHead.push(

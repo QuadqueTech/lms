@@ -2,7 +2,7 @@
 import { reactive } from "vue"
 export default function useUtility(){
 
-    let state = reactive({
+    const state = reactive({
 
             url:window.location.origin,
             base_url:window.location.origin,

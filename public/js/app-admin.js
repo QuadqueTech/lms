@@ -19634,15 +19634,15 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup() {
     var _useCreate = (0,_src_composable_use_create__WEBPACK_IMPORTED_MODULE_0__["default"])(),
         processData = _useCreate.processData,
-        inputData = _useCreate.inputData,
+        editForm = _useCreate.editForm,
         state = _useCreate.state;
 
     state.generalApi = 'course-category';
     state.backUrl = '/course-category';
-    console.log(state.generalApi);
+    console.log('inputData', state.inputData);
     return {
       processData: processData,
-      inputData: inputData,
+      editForm: editForm,
       state: state
     };
   }
@@ -19671,7 +19671,6 @@ __webpack_require__.r(__webpack_exports__);
         state = _useGet.state;
 
     state.generalApi = 'course-category';
-    console.log(state.generalApi);
     state.cardTitle = 'Course Category';
     state.columnsHead.push('Serial No.', 'Name', 'Action');
     state.columnsBody.push('name');
@@ -19786,12 +19785,11 @@ __webpack_require__.r(__webpack_exports__);
     var state = propsObj._object;
     var showEditForm = props.showEditForm;
     var deleteItem = props.deleteItem;
-    var method = (0,vue__WEBPACK_IMPORTED_MODULE_0__.toRef)(props);
-    var getDatalist = method.getDatalist;
+    var getDatalist = props.getDatalist;
     console.log('dataList', state.dataList);
     var pages = state.dataList.meta.total / state.dataList.meta.per_page;
-    var pageOfNumber = parseInt(pages);
-    console.log('pageOfNumber');
+    var pageOfNumber = parseInt(pages); // console.log('pageOfNumber', );
+
     var sortingData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)([{
       count_num: 15
     }, {
@@ -20624,34 +20622,34 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "text",
     name: "name",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $setup.inputData.name = $event;
+      return $setup.state.inputData.name = $event;
     }),
     placeholder: "e.g. Jone Doe",
     required: ""
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.inputData.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.state.inputData.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "form-control",
     type: "text",
     name: "slug",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $setup.inputData.slug = $event;
+      return $setup.state.inputData.slug = $event;
     }),
     placeholder: "e.g. jone@gmail.com",
     required: ""
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.inputData.slug]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.state.inputData.slug]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     "class": "form-control",
     type: "text",
     name: "description",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return $setup.inputData.description = $event;
+      return $setup.state.inputData.description = $event;
     }),
     placeholder: "Write about you..."
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.inputData.description]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"btn btn-primary\" type=\"submit\">Submit form</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.state.inputData.description]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button class=\"btn btn-primary\" type=\"submit\">Submit form</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FormButton, {
     isEdit: $setup.state.isEdit,
     backUrl: $setup.state.backUrl
   }, null, 8
@@ -21117,18 +21115,27 @@ var _hoisted_24 = {
 var _hoisted_25 = {
   "class": "pagination"
 };
+var _hoisted_26 = {
+  "class": "page-item"
+};
 
-var _hoisted_26 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_27 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Previous", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_27 = {
+var _hoisted_28 = {
   "class": "page-item"
 };
 
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Next");
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("1");
+
+var _hoisted_30 = {
+  "class": "page-item"
+};
+
+var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Next");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_pulseLoader = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pulseLoader");
@@ -21250,32 +21257,38 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_20)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <tr v-if=\"dataList.data.length == 0\"><td :colspan=\"columnsHead.length\" class=\"text-danger text-center\">No data available!</td></tr> ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <pagination class=\"pagination pagination-sm m-0 float-right\" :data=\"state.dataList\" :limit=\"1\" @pagination-change-page=\"getDataList\"></pagination> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["page-item", {
-      'disabled': $setup.state.dataList.meta.links[0].active == false
-    }])
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <tr v-if=\"dataList.data.length == 0\"><td :colspan=\"columnsHead.length\" class=\"text-danger text-center\">No data available!</td></tr> ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <pagination class=\"pagination pagination-sm m-0 float-right\" :data=\"state.dataList\" :limit=\"1\" @pagination-change-page=\"getDataList\"></pagination> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "page-link",
     to: "#"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_26];
+      return [_hoisted_27];
     }),
     _: 1
     /* STABLE */
 
-  })], 2
-  /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"page-item\"><router-link class=\"page-link\" :to=\"state.dataList.links.first\">1</router-link></li> "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.pageOfNumber, function (index) {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    "class": "page-link",
+    to: ""
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_29];
+    }),
+    _: 1
+    /* STABLE */
+
+  })]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.pageOfNumber, function (index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
       "class": "page-item",
       key: index,
       "aria-current": "page"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index) + " ", 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
       "class": "page-link",
       to: "#",
       onClick: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
-        return _ctx.getDataList(index, _ctx.sorting_item = 'all_data');
+        return _ctx.getDataList(index);
       }, ["prevent"])
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -21291,7 +21304,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["onClick"])]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     "class": "page-link",
     to: "#",
     onClick: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
@@ -21299,7 +21312,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, ["prevent"]))
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_28];
+      return [_hoisted_31];
     }),
     _: 1
     /* STABLE */
@@ -21541,33 +21554,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _use_utility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-utility */ "./resources/js/src/composable/use-utility.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+
 
 
 function useCreate() {
   var _useUtility = (0,_use_utility__WEBPACK_IMPORTED_MODULE_1__["default"])(),
       state = _useUtility.state;
 
-  var inputData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
+  var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
+  var route = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRoute)();
 
   var processData = function processData() {
+    console.log('isEdit', state.isEdit);
     state.isLoading = true;
     var api = state.generalApi != null ? state.generalApi : state.postApi;
     var post_api = state.base_url + '/api/' + api;
-    var patch_api = state.base_url + '/api/' + api + '/' + inputData.id;
+    var patch_api = state.base_url + '/api/' + api + '/' + state.inputData.id;
     var form = jQuery(document).find('.form');
     var formData = new FormData($(form)[0]);
 
     if (state.isEdit == true) {
       formData.append('_method', 'PUT');
-      inputData._method = 'PUT';
+      state.inputData._method = 'PUT';
     }
 
-    var getdata = state.isFile == true || state.isForm ? formData : inputData;
+    var getdata = state.isFile == true || state.isForm ? formData : state.inputData;
     var axiosRoute = state.isEdit == false ? axios.post(post_api, getdata) : axios.post(patch_api, getdata);
     axiosRoute.then(function (response) {
       if (state.isSamePage == false) {
         var push_url = '/' + api;
-        state.$router.push(push_url);
+        router.push(push_url);
       } else {
         if (state.isSamePage == false) {// state.resetForm()
         } else {// state.dataList = response.data
@@ -21597,10 +21616,34 @@ function useCreate() {
     });
   };
 
+  var editForm = function editForm() {
+    console.log('route.params.id', route.params.id);
+
+    if (route.params.id != 'create') {
+      state.isEdit = true;
+      axios.get(state.base_url + '/api' + route.path).then(function (res) {
+        var image = state.isImage;
+        console.log(_typeof(res.data.data[image]));
+
+        if (_typeof(res.data.data[image]) == 'object') {
+          var i = 0;
+        } else {
+          state.showImage = '<img style="width:90px; height:90px;" src="' + res.data.data[image] + '">';
+        }
+
+        state.inputData = res.data.data;
+        console.log('res.data.data', res.data.data);
+      });
+    } else {
+      state.isEdit = false;
+    }
+  };
+
+  editForm();
   return {
     state: state,
     processData: processData,
-    inputData: inputData
+    editForm: editForm
   };
 }
 
@@ -21630,63 +21673,64 @@ function useGet() {
   var _useUtility = (0,_use_utility__WEBPACK_IMPORTED_MODULE_1__["default"])(),
       state = _useUtility.state;
 
-  var inputData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({}); // console.log('params', route.name);
-  // let getDataList = (page = 1, sorting_item) => {
-  // }
+  var inputData = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
+  var page = 1;
+  console.log('state', state);
+  var api_url = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+    return state.generalApi;
+  });
 
-  var getDataList = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+  var getDataList = function getDataList() {
     var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
     var sorting_item = arguments.length > 1 ? arguments[1] : undefined;
-    console.log('generalApi'); // console.log('search_item 1', search_item);
-    // return false
+    state.isLoading = true;
+    setTimeout(function () {
+      var data = JSON.stringify(state.inputData);
+      var formData = data != "" ? data : 0;
 
-    var data = JSON.stringify(state.inputData);
-    var formData = data != "" ? data : 0;
-
-    if (formData.length > 2) {
-      state.isLoading = true;
-    }
-
-    if (sorting_item == 'all_data') {}
-
-    var api = state.generalApi != null ? state.generalApi : state.getApi;
-    var search = "";
-
-    if (state.searchForm.search && state.searchForm.search != 'undefined') {
-      search = state.searchForm.search;
-      state.isLoading = true;
-    } else {
-      search = false;
-    }
-
-    var query = sorting_item != undefined ? sorting_item : false;
-    var api_path = state.url + '/api/' + api + '?page=' + page + '&is_paginate=' + state.isPagination + '&search=' + search + '&sorting=' + query + '&data=' + formData;
-    axios.get(api_path).then(function (response) {
-      if (response.status == 200) {
-        console.log('data', query);
-
-        if (query === 'all_data') {
-          state.dataDownload = response.data.data;
-          state.isLoading = true;
-          setTimeout(function () {
-            $('.download').trigger('click');
-            state.isLoading = false;
-          }, 3000);
-          console.log('download data', response.data);
-        } else {
-          state.dataList = response.data;
-          state.isLoading = false;
-        }
+      if (formData.length > 2) {
+        state.isLoading = true;
       }
-    })["catch"](function (error) {
-      if (error.response.status == 422) {
-        state.errors = error.response.data.errors;
+
+      if (sorting_item == 'all_data') {}
+
+      var api = state.generalApi != null ? state.generalApi : state.getApi;
+      var search = "";
+
+      if (state.searchForm.search && state.searchForm.search != 'undefined') {
+        search = state.searchForm.search;
+        state.isLoading = true;
       } else {
-        state.toastMessage('error', error, 'check', '', 'times');
+        search = false;
       }
-    })["finally"](function () {});
-    return getDataList;
-  });
+
+      var query = sorting_item != undefined ? sorting_item : false;
+      var api_path = state.url + '/api/' + api + '?page=' + page + '&is_paginate=' + state.isPagination + '&search=' + search + '&sorting=' + query + '&data=' + formData;
+      axios.get(api_path).then(function (response) {
+        if (response.status == 200) {
+          if (query === 'all_data') {
+            state.dataDownload = response.data.data;
+            state.isLoading = true;
+            setTimeout(function () {
+              $('.download').trigger('click');
+              state.isLoading = false;
+            }, 3000);
+          } else {
+            state.dataList = response.data;
+            state.isLoading = false;
+          }
+        }
+      })["catch"](function (error) {
+        if (error.response.status == 422) {
+          state.errors = error.response.data.errors;
+        } else {
+          state.toastMessage('error', error, 'check', '', 'times');
+        }
+      })["finally"](function () {}); // return getDataList
+    }, 1500);
+  };
+
+  getDataList(page, undefined);
 
   var showEditForm = function showEditForm(id) {
     var api = state.generalApi != null ? state.generalApi : state.getApi;
@@ -21723,11 +21767,11 @@ function useGet() {
   return {
     route: route,
     router: router,
-    state: state,
     getDataList: getDataList,
     showEditForm: showEditForm,
     deleteItem: deleteItem,
-    inputData: inputData
+    inputData: inputData,
+    state: state
   };
 }
 

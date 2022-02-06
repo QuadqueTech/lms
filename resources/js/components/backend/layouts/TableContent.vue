@@ -63,13 +63,14 @@
                     <!-- <pagination class="pagination pagination-sm m-0 float-right" :data="state.dataList" :limit="1" @pagination-change-page="getDataList"></pagination> -->
                     <nav aria-label="...">
                     <ul class="pagination">
-                        <li class="page-item"  :class="{'disabled':state.dataList.meta.links[0].active == false}">
+                        <li class="page-item" >
                         <router-link class="page-link" to="#"><span>Previous</span></router-link>
                         </li>
-                        <!-- <li class="page-item"><router-link class="page-link" :to="state.dataList.links.first">1</router-link></li> -->
+                        <li class="page-item"><router-link class="page-link" to="">1</router-link></li>
 
                         <li class="page-item" v-for="index in pageOfNumber" :key="index" aria-current="page">
-                        <router-link class="page-link" to="#" @click.prevent="getDataList(index, sorting_item = 'all_data')">{{ index }}</router-link>
+                            {{ index }}
+                        <router-link class="page-link" to="#" @click.prevent="getDataList(index)">{{ index }}</router-link>
                         </li>
                         
                         <li class="page-item">
@@ -96,8 +97,7 @@
         let state        = propsObj._object
         let showEditForm = props.showEditForm
         let deleteItem   = props.deleteItem
-        let method = toRef(props)
-        let getDatalist  = method.getDatalist
+        let getDatalist  = props.getDatalist
 
         console.log('dataList', state.dataList);
 
@@ -105,7 +105,7 @@
 
         let pageOfNumber = parseInt(pages)
 
-        console.log('pageOfNumber', );
+        // console.log('pageOfNumber', );
              
 
         let sortingData = reactive([

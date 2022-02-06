@@ -11,11 +11,11 @@
             <div class="form-row">
               <div class="col-md-6 mb-3">
                 <label for="validationCustom02">Name</label>     
-                <input class="form-control" type="text" name="name" v-model="inputData.name" placeholder="e.g. Jone Doe" required="">
+                <input class="form-control" type="text" name="name" v-model="state.inputData.name" placeholder="e.g. Jone Doe" required="">
               </div>
               <div class="col-md-6 mb-3">
                 <label for="validationCustom02">Slug</label>     
-                <input class="form-control" type="text" name="slug" v-model="inputData.slug" placeholder="e.g. jone@gmail.com" required="">
+                <input class="form-control" type="text" name="slug" v-model="state.inputData.slug" placeholder="e.g. jone@gmail.com" required="">
               </div>
              </div>
              <div class="form-row">
@@ -26,7 +26,7 @@
             
               <div class="col-md-6 mb-3">
                 <label for="validationCustom02">Description</label> 
-                <textarea class="form-control" type="text" name="description" v-model="inputData.description" placeholder="Write about you..."></textarea>
+                <textarea class="form-control" type="text" name="description" v-model="state.inputData.description" placeholder="Write about you..."></textarea>
               </div>
             </div>
             <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
@@ -41,19 +41,20 @@
 
 <script>
 import useCreate from '../../../../src/composable/use-create'
+
 export default {
    setup(){
-     let {processData, inputData, state} = useCreate()
-
+     let {processData, editForm, state} = useCreate()
+ 
     state.generalApi = 'course-category'
     state.backUrl = '/course-category'
 
-    console.log(state.generalApi);
+    console.log('inputData', state.inputData);
     
     return{
 
       processData,
-      inputData,
+      editForm,
       state,
     }
    }

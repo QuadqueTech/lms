@@ -6,22 +6,20 @@ export default function useGet(){
 
     let router    = useRouter()
     let route     = useRoute()
-    let {state}   = useUtility()
+    var {state}   = useUtility()
     let inputData = reactive({})
+    let page = 1
+    console.log('state',state);
 
-    // console.log('params', route.name);
-    // let getDataList = (page = 1, sorting_item) => {
+    let api_url = computed(()=>state.generalApi)
 
-       
-    // }
-
-    let getDataList = computed((page = 1, sorting_item) =>{
-
-        console.log('generalApi');
-
-        // console.log('search_item 1', search_item);
-        // return false
-
+   
+   
+    let  getDataList = (page = 1, sorting_item) => { 
+    
+    state.isLoading = true
+    setTimeout(()=>{
+        
         let data     = JSON.stringify(state.inputData)
         let formData = data !=""?data:0
 
@@ -53,9 +51,9 @@ export default function useGet(){
         
         axios.get(api_path)
         .then(response => {
-
+            
             if(response.status == 200){
-                console.log('data', query);
+                 
                 if(query === 'all_data'){
 
                     state.dataDownload = response.data.data
@@ -66,7 +64,6 @@ export default function useGet(){
                         state.isLoading = false
                     
                     }, 3000)
-                    console.log('download data', response.data);
 
                 } else {
 
@@ -90,9 +87,11 @@ export default function useGet(){
 
         })
 
-        return getDataList
+        // return getDataList
+    }, 1500)
+    }
 
-    })
+    getDataList(page, undefined)
 
 
 
@@ -103,6 +102,7 @@ export default function useGet(){
         
         
     }
+
 
     // showEditForm()
 
@@ -145,11 +145,11 @@ export default function useGet(){
     return{
         route,
         router,
-        state,
         getDataList,
         showEditForm,
         deleteItem,
-        inputData
+        inputData,
+        state,
 
     }
     
